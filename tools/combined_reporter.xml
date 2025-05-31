@@ -1,0 +1,19 @@
+<tool id="combined_reporter" name="Combined Reporter">
+    <command><![CDATA[
+        python '$__tool_directory__/combined_reporter.py'
+            #if $input_json
+                --input_json '$input_json'
+            #end if
+            #if $input_html
+                --input_html '$input_html'
+            #end if
+            --output_svg '$model_figure'
+    ]]></command>
+    <inputs>
+        <param name="input_json" type="data" format="json" label="Input JSON File" optional="true"/>
+        <param name="input_html" type="data" format="html" label="Input HTML File" optional="true"/>
+    </inputs>
+    <outputs>
+        <data name="model_figure" format="svg" label="model_figure.svg"/>
+    </outputs>
+</tool>
